@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailPlaylistViewController" customModule="Spotify" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music.note" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="S9d-kC-Xp4">
+                    <rect key="frame" x="121.66666666666669" y="93.666666666666657" width="150" height="145.00000000000003"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="1EQ-KJ-s09"/>
+                        <constraint firstAttribute="width" constant="150" id="yL0-4J-TZp"/>
+                    </constraints>
+                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wno-vq-vha">
+                    <rect key="frame" x="16.000000000000004" y="257" width="41.333333333333343" height="20.333333333333314"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lcj-gH-BfX">
+                    <rect key="frame" x="16" y="290.33333333333331" width="20" height="18.666666666666686"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="47s-fk-Hd2"/>
+                        <constraint firstAttribute="width" constant="20" id="55h-ck-nQR"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nf5-dt-GKE">
+                    <rect key="frame" x="114.66666666666669" y="398.33333333333331" width="164" height="34.333333333333314"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Add to this playlist"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Uk-wD-rz2">
+                    <rect key="frame" x="16" y="325.33333333333331" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="2aY-Vw-nFB"/>
+                        <constraint firstAttribute="width" constant="20" id="PjP-Bs-g7T"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title=" " titleAlignment="center">
+                        <imageReference key="image" image="ellipsis" catalog="system" symbolScale="default"/>
+                    </buttonConfiguration>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPX-Df-TIo">
+                    <rect key="frame" x="44" y="289.33333333333331" width="47.666666666666657" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's start building your playlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwh-lj-6Zp">
+                    <rect key="frame" x="78" y="361.33333333333331" width="237" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cwh-lj-6Zp" firstAttribute="top" secondItem="4Uk-wD-rz2" secondAttribute="bottom" constant="16" id="9u2-jY-eWB"/>
+                <constraint firstItem="4Uk-wD-rz2" firstAttribute="top" secondItem="Lcj-gH-BfX" secondAttribute="bottom" constant="16" id="9wZ-VV-lgF"/>
+                <constraint firstItem="dPX-Df-TIo" firstAttribute="top" secondItem="Lcj-gH-BfX" secondAttribute="top" id="AjU-ca-83U"/>
+                <constraint firstItem="S9d-kC-Xp4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="D42-xD-3uk"/>
+                <constraint firstItem="4Uk-wD-rz2" firstAttribute="top" secondItem="Lcj-gH-BfX" secondAttribute="bottom" constant="16" id="PHT-B4-ePn"/>
+                <constraint firstItem="Nf5-dt-GKE" firstAttribute="top" secondItem="cwh-lj-6Zp" secondAttribute="bottom" constant="16" id="V2f-DW-cgN"/>
+                <constraint firstItem="4Uk-wD-rz2" firstAttribute="leading" secondItem="Lcj-gH-BfX" secondAttribute="leading" id="a6u-U8-1VX"/>
+                <constraint firstItem="Lcj-gH-BfX" firstAttribute="leading" secondItem="Wno-vq-vha" secondAttribute="leading" id="aLs-6v-yc5"/>
+                <constraint firstItem="Wno-vq-vha" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ecw-5n-Oba"/>
+                <constraint firstItem="Lcj-gH-BfX" firstAttribute="top" secondItem="Wno-vq-vha" secondAttribute="bottom" constant="12" id="fcv-XY-igw"/>
+                <constraint firstItem="Nf5-dt-GKE" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="nvz-RB-HoI"/>
+                <constraint firstItem="Wno-vq-vha" firstAttribute="top" secondItem="S9d-kC-Xp4" secondAttribute="bottom" constant="16" id="oVv-iB-5iV"/>
+                <constraint firstItem="S9d-kC-Xp4" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="sob-ra-Fu3"/>
+                <constraint firstItem="cwh-lj-6Zp" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="wTc-Yj-NuN"/>
+                <constraint firstItem="dPX-Df-TIo" firstAttribute="leading" secondItem="Lcj-gH-BfX" secondAttribute="trailing" constant="8" id="y3Z-ph-JIt"/>
+                <constraint firstItem="dPX-Df-TIo" firstAttribute="centerY" secondItem="Lcj-gH-BfX" secondAttribute="centerY" id="yps-BR-RKW"/>
+            </constraints>
+            <point key="canvasLocation" x="107.63358778625954" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="music.note" catalog="system" width="96" height="128"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
