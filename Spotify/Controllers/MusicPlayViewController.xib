@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MusicPlayViewController" customModule="Spotify" customModuleProvider="target">
             <connections>
                 <outlet property="albumImg" destination="BO1-8r-MOy" id="H6m-x8-X6Q"/>
+                <outlet property="btnPlay" destination="2q0-dA-a8E" id="gyO-ze-95v"/>
                 <outlet property="lblSinger" destination="EET-9J-Fmg" id="oAG-aF-2MH"/>
                 <outlet property="lblSongTitle" destination="roB-FQ-S8k" id="C1U-9v-wYr"/>
                 <outlet property="lblSongTitle2" destination="zjn-yO-zMf" id="SWQ-8n-wHd"/>
@@ -79,7 +80,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="plus.circle" catalog="system" title=" "/>
                 </button>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3SZ-zu-ctY">
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3SZ-zu-ctY">
                     <rect key="frame" x="16" y="607" width="361" height="10"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="10" id="TZe-ZN-Tkj"/>
@@ -111,6 +112,9 @@
                         <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="playMusic:" destination="-1" eventType="touchUpInside" id="OzO-PI-KVx"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CJ-uo-gEY">
                     <rect key="frame" x="92.666666666666671" y="658" width="30" height="30"/>

@@ -14,7 +14,11 @@ class MusicPlayViewController: UIViewController {
     @IBOutlet weak var albumImg: UIImageView!
     @IBOutlet weak var lblSongTitle2: UILabel!
     @IBOutlet weak var lblSinger: UILabel!
+    @IBOutlet weak var btnPlay: UIButton!
+    
     var selectedMusic: Album?
+    var player: AVPlayer?
+    var isPlayed: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,4 +43,26 @@ class MusicPlayViewController: UIViewController {
             albumImg.loadImage(url: urlAlbumImg, placeholder: UIImage(named: "placeholder"))
         }
     }
+    
+    @IBAction func playMusic(_ sender: Any) {
+        isPlayed.toggle()
+
+        if let player = player {
+            if isPlayed {
+                player.play()
+            } else {
+                player.pause()
+            }
+        } else {
+            // Initialize the player if it doesn't exist
+            guard let musicURL = URL(string: selectedMusic?.previewUrl ?? "") else { return }
+            player = AVPlayer(url: musicURL)
+            player?.play()
+            print("Now playing: \(musicURL)")
+        }
+        
+        print("isPlayed: \(isPlayed)")
+        btnPlay.setImage(UIImage(systemName: isPlayed ? "pause.fill" : "play.fill"), for: .normal)
+    }
+    
 }
