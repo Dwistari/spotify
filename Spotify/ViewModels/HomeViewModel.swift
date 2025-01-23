@@ -27,9 +27,6 @@ class HomeViewModel {
             case .success(let albums):
                 self.didFinishLoadAlbums?(albums.results)
                 self.albumResults.append(contentsOf: albums.results)
-                
-                print("albumResults", self.albumResults)
-                
             case .failure(let error):
                 self.errors.append(error)
             }

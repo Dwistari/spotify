@@ -72,18 +72,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zux-Ya-WYQ">
-                                <rect key="frame" x="16" y="164" width="361" height="589"/>
+                                <rect key="frame" x="16" y="120" width="361" height="633"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="w6Z-vZ-1M5">
-                                <rect key="frame" x="16" y="104" width="45" height="43.666666666666686"/>
+                                <rect key="frame" x="16" y="60.000000000000007" width="45" height="43.666666666666664"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="5bN-Uy-JAV"/>
                                     <constraint firstAttribute="width" constant="45" id="Cpj-xf-JQ0"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OOi-X8-K2G">
-                                <rect key="frame" x="77" y="110.66666666666667" width="69.333333333333314" height="30.000000000000014"/>
+                                <rect key="frame" x="77" y="66.666666666666671" width="69.333333333333314" height="30"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ku1-B3-et2"/>
@@ -94,7 +94,7 @@
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUb-uB-gXR">
-                                <rect key="frame" x="171" y="110.66666666666667" width="86" height="30.000000000000014"/>
+                                <rect key="frame" x="171" y="66.666666666666671" width="86" height="30"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="XOf-1K-UzS"/>
@@ -136,7 +136,7 @@
             <objects>
                 <navigationController id="xQc-Pc-e4b" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Library" image="books.vertical.fill" catalog="system" id="ySO-is-jRN"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k5c-BG-ehG">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="arrow.backward" catalog="system" backIndicatorTransitionMaskImage="arrow.backward" id="k5c-BG-ehG">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -151,7 +151,7 @@
         <!--Search View Controller-->
         <scene sceneID="3d9-hn-3EU">
             <objects>
-                <viewController id="75y-5r-cTg" customClass="SearchViewController" customModule="Spotify" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="75y-5r-cTg" customClass="SearchViewController" customModule="Spotify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pdz-CN-doG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,16 +226,6 @@
                                     <action selector="addPlaylist:" destination="JfP-Lc-Gh7" eventType="touchUpInside" id="fPG-c0-Tr3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRk-Q3-syn">
-                                <rect key="frame" x="313" y="120.66666666666669" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Nlq-yv-56v"/>
-                                    <constraint firstAttribute="width" constant="30" id="zyR-B5-poK"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=" "/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gw-zc-jBi">
                                 <rect key="frame" x="16" y="168" width="78" height="30"/>
                                 <constraints>
@@ -298,14 +288,12 @@
                         <viewLayoutGuide key="safeArea" id="4fc-Mf-l3g"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ihq-SP-B9d" firstAttribute="leading" secondItem="BRk-Q3-syn" secondAttribute="trailing" constant="10" id="3H2-jT-ObE"/>
                             <constraint firstItem="iVr-I7-TFs" firstAttribute="leading" secondItem="xsT-nV-K12" secondAttribute="leading" id="5ch-Sf-kbD"/>
                             <constraint firstItem="YVB-k7-I76" firstAttribute="centerY" secondItem="Rwh-b0-tTt" secondAttribute="centerY" id="7Bj-4A-MwJ"/>
                             <constraint firstItem="YvQ-og-1Ap" firstAttribute="leading" secondItem="iVr-I7-TFs" secondAttribute="trailing" constant="10" id="A98-P9-wSN"/>
                             <constraint firstItem="6gw-zc-jBi" firstAttribute="leading" secondItem="iVr-I7-TFs" secondAttribute="leading" id="A9k-U4-sIz"/>
                             <constraint firstItem="xsT-nV-K12" firstAttribute="top" secondItem="r7Q-ud-7sx" secondAttribute="bottom" constant="20" id="DaF-3F-B6L"/>
                             <constraint firstItem="4fc-Mf-l3g" firstAttribute="trailing" secondItem="ihq-SP-B9d" secondAttribute="trailing" constant="10" id="IeD-45-PKa"/>
-                            <constraint firstItem="BRk-Q3-syn" firstAttribute="centerY" secondItem="YvQ-og-1Ap" secondAttribute="centerY" id="MGa-dd-of0"/>
                             <constraint firstItem="Rwh-b0-tTt" firstAttribute="leading" secondItem="xsT-nV-K12" secondAttribute="leading" id="P6G-r3-ess"/>
                             <constraint firstItem="YvQ-og-1Ap" firstAttribute="centerY" secondItem="iVr-I7-TFs" secondAttribute="centerY" id="SEA-fE-Lec"/>
                             <constraint firstItem="ZMt-4H-GFZ" firstAttribute="centerY" secondItem="6gw-zc-jBi" secondAttribute="centerY" id="YmW-Wc-h6i"/>
@@ -316,9 +304,9 @@
                             <constraint firstItem="6gw-zc-jBi" firstAttribute="top" secondItem="iVr-I7-TFs" secondAttribute="bottom" constant="10" id="mrQ-3o-gXu"/>
                             <constraint firstItem="iVr-I7-TFs" firstAttribute="top" secondItem="4fc-Mf-l3g" secondAttribute="top" constant="10" id="nFT-S9-i86"/>
                             <constraint firstItem="ZMt-4H-GFZ" firstAttribute="leading" secondItem="6gw-zc-jBi" secondAttribute="trailing" constant="16" id="oC8-7q-bbV"/>
+                            <constraint firstItem="ihq-SP-B9d" firstAttribute="centerY" secondItem="YvQ-og-1Ap" secondAttribute="centerY" id="pHR-YJ-lOu"/>
                             <constraint firstItem="r7Q-ud-7sx" firstAttribute="top" secondItem="ZMt-4H-GFZ" secondAttribute="bottom" constant="20" id="pbc-MN-hj6"/>
                             <constraint firstItem="xsT-nV-K12" firstAttribute="leading" secondItem="4fc-Mf-l3g" secondAttribute="leading" constant="16" id="vFX-Zh-Itv"/>
-                            <constraint firstItem="ihq-SP-B9d" firstAttribute="centerY" secondItem="BRk-Q3-syn" secondAttribute="centerY" id="y5J-3G-EWp"/>
                             <constraint firstItem="4fc-Mf-l3g" firstAttribute="bottom" secondItem="xsT-nV-K12" secondAttribute="bottom" constant="16" id="ySX-0k-xVf"/>
                         </constraints>
                     </view>
@@ -355,11 +343,10 @@
         <!--Navigation Controller-->
         <scene sceneID="nzP-hk-w6F">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ucB-nj-k6r" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ucB-nj-k6r" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="N8q-bV-T8K"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rtE-6H-gYN">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -376,7 +363,9 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IUV-ai-bEt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="dsP-e5-4sy"/>
+                    <navigationItem key="navigationItem" id="dsP-e5-4sy">
+                        <barButtonItem key="backBarButtonItem" title=" " id="hI2-ON-HaW"/>
+                    </navigationItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tnc-Bs-0gh">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -392,6 +381,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="95"/>
         <image name="arrow.up.arrow.down" catalog="system" width="128" height="97"/>
         <image name="books.vertical.fill" catalog="system" width="128" height="110"/>
         <image name="house" catalog="system" width="128" height="104"/>

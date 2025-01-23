@@ -36,18 +36,14 @@ class CreatePlaylistController: UIViewController {
     }
     
     private func addPlaylist(name: String, completion: @escaping (Bool) -> Void) {
-        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
-            completion(false)
-            return
-        }
-        
+        let persistent = CoreDataManager.shared
         let fetchRequest: NSFetchRequest<PlaylistEntity> = PlaylistEntity.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
         fetchRequest.fetchLimit = 1
         
         var newID: Int64 = 1
            do {
-               if let lastPlaylist = try context.fetch(fetchRequest).first {
+               if let lastPlaylist = try persistent.context.fetch(fetchRequest).first {
                    newID = lastPlaylist.id + 1
                }
                
@@ -59,11 +55,11 @@ class CreatePlaylistController: UIViewController {
            }
         
         do {
-            let playlist = PlaylistEntity(context: context)
+            let playlist = PlaylistEntity(context: persistent.context)
             playlist.name = name
             playlist.id = newID
             playlist.createAt = Date()
-            try context.save()
+            try persistent.context.save()
             completion(true)
             
         } catch {

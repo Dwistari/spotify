@@ -41,21 +41,20 @@ class LibraryViewContoller: UIViewController {
     }
     
     @IBAction func addPlaylist(_ sender: Any) {
-        let vc = CreatePlaylistController()
-        vc.didSavedPlaylist = {
+        let createVc = CreatePlaylistController()
+        createVc.didSavedPlaylist = {
+            let vc = DetailPlaylistViewController()
+            vc.playlistName = createVc.txtPlaylistName.text ?? ""
+            self.navigationController?.pushViewController(vc, animated: true)
             self.loadPlaylist()
         }
-        self.present(vc, animated: true, completion: nil)
+        self.present(createVc, animated: true, completion: nil)
     }
     
     private func showPlaylist(handler: @escaping (_ people: [PlaylistEntity]?) -> Void) {
-        guard let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext else {
-            handler(nil)
-            return
-        }
-        
+        let persistent = CoreDataManager.shared
         do {
-            let people = try context.fetch(PlaylistEntity.fetchRequest())
+            let people = try persistent.context.fetch(PlaylistEntity.fetchRequest())
             handler(people)
         } catch {
             print("Failed to fetch data: \(error.localizedDescription)")

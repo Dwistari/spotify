@@ -2,7 +2,7 @@
 //  PlaylistEntity+CoreDataProperties.swift
 //  Spotify
 //
-//  Created by Dwistari on 12/01/25.
+//  Created by Dwistari on 17/01/25.
 //
 //
 
@@ -16,10 +16,17 @@ extension PlaylistEntity {
         return NSFetchRequest<PlaylistEntity>(entityName: "PlaylistEntity")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var createAt: Date?
-    @NSManaged public var id: Int64
+    @objc(addSongsObject:)
+    @NSManaged public func addToSongs(_ value: Song)
 
+    @objc(removeSongsObject:)
+    @NSManaged public func removeFromSongs(_ value: Song)
+
+    @objc(addSongs:)
+    @NSManaged public func addToSongs(_ values: Set<Song>)
+
+    @objc(removeSongs:)
+    @NSManaged public func removeFromSongs(_ values: Set<Song>)
 }
 
 extension PlaylistEntity : Identifiable {
