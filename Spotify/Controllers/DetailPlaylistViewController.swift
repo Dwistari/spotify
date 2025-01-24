@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailPlaylistViewController: UIViewController {
     
@@ -14,18 +15,13 @@ class DetailPlaylistViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var cellReuseIdentifier = "cell"
-    var playlistName: String = ""
     var selectedItem: PlaylistEntity?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        playlistnameLbl.text = playlistName != "" ? playlistName : selectedItem?.name
-        
-        if let song = selectedItem?.songs {
-            totalSongLbl.text = "\(song.count)" + " total songs"
-        }
-        
+        playlistnameLbl.text = selectedItem?.name
+        checkSong()
         setTableView()
     }
     
@@ -34,7 +30,7 @@ class DetailPlaylistViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         setupNavbar(color: .purple)
-        self.tableView.reloadData()
+        checkSong()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -89,12 +85,31 @@ class DetailPlaylistViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    private func checkSong() {
+        if let song = selectedItem?.songs {
+            totalSongLbl.text = "\(song.count)" + " total songs"
+        }
+        self.tableView.reloadData()
+    }
+    
+    private func deleteSong(songID: NSManagedObjectID) {
+        let context = CoreDataManager.shared.context
+           do {
+               let song = try context.existingObject(with: songID)
+               context.delete(song)
+               CoreDataManager.shared.saveContext()
+               print("Song deleted successfully.")
+           } catch {
+               print("Failed to delete Song: \(error.localizedDescription)")
+           }
+        
+        self.tableView.reloadData()
+    }
+    
 }
 
 extension DetailPlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("check-song", self.selectedItem?.songs ?? "kozoongg")
-
         return self.selectedItem?.songs?.count ?? 0
     }
     
@@ -113,5 +128,16 @@ extension DetailPlaylistViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let selectedSong =  self.selectedItem?.songs {
+                var songsArray = Array(selectedSong)
+                deleteSong(songID: songsArray[indexPath.row].objectID)
+                songsArray.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                print("Failed to find the playlist at the specified index")
+            }
+        }
+    }
 }

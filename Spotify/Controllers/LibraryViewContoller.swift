@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LibraryViewContoller: UIViewController {
     
@@ -42,9 +43,9 @@ class LibraryViewContoller: UIViewController {
     
     @IBAction func addPlaylist(_ sender: Any) {
         let createVc = CreatePlaylistController()
-        createVc.didSavedPlaylist = {
+        createVc.didSavedPlaylist = { result in
             let vc = DetailPlaylistViewController()
-            vc.playlistName = createVc.txtPlaylistName.text ?? ""
+            vc.selectedItem = result
             self.navigationController?.pushViewController(vc, animated: true)
             self.loadPlaylist()
         }
@@ -62,14 +63,27 @@ class LibraryViewContoller: UIViewController {
         }
     }
     
+    private func deletePlaylist(playlistID: NSManagedObjectID) {
+        let context = CoreDataManager.shared.context
+           do {
+               let playlist = try context.existingObject(with: playlistID)
+               context.delete(playlist)
+               CoreDataManager.shared.saveContext()
+               print("Playlist deleted successfully.")
+           } catch {
+               print("Failed to delete playlist: \(error.localizedDescription)")
+           }
+        
+        self.tableView.reloadData()
+    }
+    
     private func openDetailPlaylist() {
         let vc = DetailPlaylistViewController()
         self.present(vc, animated: true, completion: nil)
     }
-    
 }
 
-extension LibraryViewContoller: UITableViewDelegate, UITableViewDataSource {
+extension LibraryViewContoller: UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return playlist?.count ?? 0
@@ -85,5 +99,17 @@ extension LibraryViewContoller: UITableViewDelegate, UITableViewDataSource {
         let vc = DetailPlaylistViewController()
         vc.selectedItem = playlist?[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let selectedPlaylist = playlist?[indexPath.row] {
+                deletePlaylist(playlistID: selectedPlaylist.objectID)
+                playlist?.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            } else {
+                print("Failed to find the playlist at the specified index")
+            }
+        }
     }
 }

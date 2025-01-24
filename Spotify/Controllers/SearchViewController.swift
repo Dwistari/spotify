@@ -41,6 +41,12 @@ class SearchViewController: UIViewController {
         searchView.sizeToFit()
         
         navigationController?.isNavigationBarHidden = isHiddenNavbar
+        
+        if let dataPlay = playlist {
+            print("dataPlay", dataPlay)
+        } else {
+            print("playlist ksong")
+        }
     }
     
     func loadData(keyword: String) {
@@ -63,56 +69,26 @@ class SearchViewController: UIViewController {
         song.url = musicUrl
         
         playlist?.addToSongs(song)
-        CoreDataManager.shared.saveContext()
         
+        if let play = playlist {
+            print("playlist", play.name ?? "ada isinya")
+        } else {
+            print("playlist-kosong")
+        }
         
-//        let context = CoreDataManager.shared.context
-//        
-//        // Fetch the playlist or create a new one
-//        let playlistFetchRequest: NSFetchRequest<PlaylistEntity> = PlaylistEntity.fetchRequest()
-//        playlistFetchRequest.predicate = NSPredicate(format: "name == %@", playlistName)
-//        
-//        var playlist: PlaylistEntity?
-//        
-//        do {
-//            let playlists = try context.fetch(playlistFetchRequest)
-//            if let existingPlaylist = playlists.first {
-//                playlist = existingPlaylist
-//            } else {
-//                // Create a new playlist if one doesn't exist
-//                playlist = PlaylistEntity(context: context)
-//                playlist?.name = playlistName
-//            }
-//        } catch {
-//            print("Failed to fetch playlist: \(error)")
-//            return
-//        }
-//        
-//        // Ensure songs relationship is initialized
-//        if playlist?.songs == nil {
-//            print("songs", "kozzonnggg")
-//            
-////            playlist?.songs = Set<Song>()
-//        }
-//        
-//        // Create a new song and associate it with the playlist
-//        let song = Song(context: context)
-//        song.title = songTitle
-//        song.artist = artist
-//        song.image = imageUrl
-//        song.url = musicUrl
-//        song.playlist = playlist
-//        
-//        // Add the song to the playlist
-//        playlist?.addToSongs(song)
-//        
-//        // Save the context
-//        do {
-//            try context.save()
-//            print("Song added to playlist successfully!")
-//        } catch {
-//            print("Failed to save: \(error)")
-//        }
+        print("saveSongToPlaylist")
+        
+        print("songTitle",songTitle)
+        print("artist",artist)
+        print("imageUrl",imageUrl)
+        print("musicUrl",musicUrl)
+
+        do {
+            try context.save()
+            print("Song added to playlist successfully!")
+        } catch {
+            print("Failed to save: \(error)")
+        }
     }
 }
 
@@ -158,7 +134,7 @@ extension SearchViewController: UISearchBarDelegate {
         let searchSong = searchText.replacingOccurrences(of: " ", with: "+")
         print("searchSong", searchSong)
 
-        loadData(keyword: searchText)
+        loadData(keyword: searchSong)
           tableView.reloadData()
       }
     
