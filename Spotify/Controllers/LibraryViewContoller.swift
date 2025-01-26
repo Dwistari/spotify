@@ -22,7 +22,6 @@ class LibraryViewContoller: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -92,6 +91,10 @@ extension LibraryViewContoller: UITableViewDelegate, UITableViewDataSource, UIGe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LibraryViewCell
         cell.lblName.text =  self.playlist?[indexPath.row].name
+        if let song = self.playlist?[indexPath.row].songs {
+            var songsArray = Array(song)
+            cell.trackSong.text =  "\(songsArray.count) songs"
+        }
         return cell
     }
     

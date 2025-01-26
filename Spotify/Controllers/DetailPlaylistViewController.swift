@@ -16,6 +16,7 @@ class DetailPlaylistViewController: UIViewController {
     
     var cellReuseIdentifier = "cell"
     var selectedItem: PlaylistEntity?
+    var song: Song?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,5 +140,15 @@ extension DetailPlaylistViewController: UITableViewDelegate, UITableViewDataSour
                 print("Failed to find the playlist at the specified index")
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let selectedSong =  self.selectedItem?.songs {
+            let songsArray = Array(selectedSong)
+            self.song = songsArray[indexPath.row]
+        }
+        let vc = MusicPlayViewController()
+        vc.selectSong = self.song
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

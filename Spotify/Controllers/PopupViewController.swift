@@ -15,19 +15,19 @@ class PopupViewController: UIViewController {
     @IBOutlet weak var addPlaylistView: UIView!
     @IBOutlet weak var shareView: UIView!
     var selectedMusic: Album?
-    
+    var selectedSong: Song?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLbl.text = selectedMusic?.collectionName
-        singerLbl.text = selectedMusic?.artistName
+        titleLbl.text = selectedMusic != nil ? selectedMusic?.collectionName : selectedSong?.title
+        singerLbl.text = selectedMusic != nil ? selectedMusic?.artistName : selectedSong?.artist
 
         let tapPlaylist = UITapGestureRecognizer(target: self, action: #selector(addPlaylist))
         addPlaylistView.addGestureRecognizer(tapPlaylist)
        
         let tapShare = UITapGestureRecognizer(target: self, action: #selector(shareMusic))
         shareView.addGestureRecognizer(tapShare)
-        
     }
     
     @objc func addPlaylist() {

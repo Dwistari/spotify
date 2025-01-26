@@ -75,13 +75,6 @@ class SearchViewController: UIViewController {
         } else {
             print("playlist-kosong")
         }
-        
-        print("saveSongToPlaylist")
-        
-        print("songTitle",songTitle)
-        print("artist",artist)
-        print("imageUrl",imageUrl)
-        print("musicUrl",musicUrl)
 
         do {
             try context.save()

@@ -27,6 +27,8 @@
 		DDBE5EAA2D39508C0077E031 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBE5EA82D39508C0077E031 /* PopupViewController.swift */; };
 		DDBE5EAB2D39508C0077E031 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDBE5EA92D39508C0077E031 /* PopupViewController.xib */; };
 		DDCB09252D33AEBC00C309E3 /* Spotify.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDCB09232D33AEBC00C309E3 /* Spotify.xcdatamodeld */; };
+		DDCD3FA72D43B4260003A73A /* PlaylistGridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD3FA62D43B4260003A73A /* PlaylistGridViewCell.xib */; };
+		DDCD3FA82D43B4260003A73A /* PlaylistGridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD3FA52D43B4260003A73A /* PlaylistGridViewCell.swift */; };
 		DDDD5B4D2D0956930060FC61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD5B4C2D0956930060FC61 /* AppDelegate.swift */; };
 		DDDD5B4F2D0956930060FC61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD5B4E2D0956930060FC61 /* SceneDelegate.swift */; };
 		DDDD5B512D0956930060FC61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDD5B502D0956930060FC61 /* ViewController.swift */; };
@@ -67,6 +69,8 @@
 		DDBE5EA82D39508C0077E031 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		DDBE5EA92D39508C0077E031 /* PopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 		DDCB09242D33AEBC00C309E3 /* Spotify.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spotify.xcdatamodel; sourceTree = "<group>"; };
+		DDCD3FA52D43B4260003A73A /* PlaylistGridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistGridViewCell.swift; sourceTree = "<group>"; };
+		DDCD3FA62D43B4260003A73A /* PlaylistGridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaylistGridViewCell.xib; sourceTree = "<group>"; };
 		DDDD5B492D0956930060FC61 /* Spotify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spotify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDD5B4C2D0956930060FC61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDDD5B4E2D0956930060FC61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				DDA903292D2BED2C00BE8DC7 /* LibraryViewCell.xib */,
 				DD7AD1D62D37810C00F43E9A /* CustomNavigationBar.swift */,
 				DDF99E9A2D3FDB6D0077E5C3 /* CheckBox.swift */,
+				DDCD3FA52D43B4260003A73A /* PlaylistGridViewCell.swift */,
+				DDCD3FA62D43B4260003A73A /* PlaylistGridViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 				DDDD5B562D0956950060FC61 /* Assets.xcassets in Resources */,
 				DDF99E982D3FD9300077E5C3 /* AddPlaylistViewController.xib in Resources */,
 				DDBE5EAB2D39508C0077E031 /* PopupViewController.xib in Resources */,
+				DDCD3FA72D43B4260003A73A /* PlaylistGridViewCell.xib in Resources */,
 				DDFE28832D3553EA0022640C /* MusicPlayViewController.xib in Resources */,
 				DDDD5B592D0956950060FC61 /* Base in Resources */,
 				DD47CE122D2849A70033D531 /* AlbumViewCell.xib in Resources */,
@@ -302,6 +309,7 @@
 				DDA9032A2D2BED2C00BE8DC7 /* LibraryViewCell.swift in Sources */,
 				DD7AD1D72D37810C00F43E9A /* CustomNavigationBar.swift in Sources */,
 				DDFE17402D2A3298009D1DFA /* ImageExtension.swift in Sources */,
+				DDCD3FA82D43B4260003A73A /* PlaylistGridViewCell.swift in Sources */,
 				DD3B30222D3A71C800836FF4 /* CoreDataManager.swift in Sources */,
 				DDA903272D2B9C8E00BE8DC7 /* SearchViewModel.swift in Sources */,
 				DDDD5B512D0956930060FC61 /* ViewController.swift in Sources */,

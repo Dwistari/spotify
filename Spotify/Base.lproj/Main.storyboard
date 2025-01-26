@@ -237,7 +237,7 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMt-4H-GFZ">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMt-4H-GFZ">
                                 <rect key="frame" x="110" y="168" width="78" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4Fc-4C-0ew"/>
@@ -249,7 +249,7 @@
                                 </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xsT-nV-K12">
-                                <rect key="frame" x="16" y="272.33333333333326" width="361" height="480.66666666666674"/>
+                                <rect key="frame" x="16" y="252.33333333333334" width="361" height="500.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7Q-ud-7sx">
@@ -292,7 +292,7 @@
                             <constraint firstItem="YVB-k7-I76" firstAttribute="centerY" secondItem="Rwh-b0-tTt" secondAttribute="centerY" id="7Bj-4A-MwJ"/>
                             <constraint firstItem="YvQ-og-1Ap" firstAttribute="leading" secondItem="iVr-I7-TFs" secondAttribute="trailing" constant="10" id="A98-P9-wSN"/>
                             <constraint firstItem="6gw-zc-jBi" firstAttribute="leading" secondItem="iVr-I7-TFs" secondAttribute="leading" id="A9k-U4-sIz"/>
-                            <constraint firstItem="xsT-nV-K12" firstAttribute="top" secondItem="r7Q-ud-7sx" secondAttribute="bottom" constant="20" id="DaF-3F-B6L"/>
+                            <constraint firstItem="xsT-nV-K12" firstAttribute="top" secondItem="r7Q-ud-7sx" secondAttribute="bottom" id="DaF-3F-B6L"/>
                             <constraint firstItem="4fc-Mf-l3g" firstAttribute="trailing" secondItem="ihq-SP-B9d" secondAttribute="trailing" constant="10" id="IeD-45-PKa"/>
                             <constraint firstItem="Rwh-b0-tTt" firstAttribute="leading" secondItem="xsT-nV-K12" secondAttribute="leading" id="P6G-r3-ess"/>
                             <constraint firstItem="YvQ-og-1Ap" firstAttribute="centerY" secondItem="iVr-I7-TFs" secondAttribute="centerY" id="SEA-fE-Lec"/>
@@ -393,10 +393,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBrownColor">
-            <color red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="underPageBackgroundColor">
             <color red="0.70980392156862748" green="0.71764705882352942" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
