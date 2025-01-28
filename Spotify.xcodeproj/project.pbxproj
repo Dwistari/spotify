@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0262682D48D99300EF31BF /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0262662D48D99300EF31BF /* GridViewCell.swift */; };
+		DD0262692D48D99300EF31BF /* GridViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD0262672D48D99300EF31BF /* GridViewCell.xib */; };
 		DD3B30222D3A71C800836FF4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B30212D3A71C800836FF4 /* CoreDataManager.swift */; };
 		DD3B30272D3A798A00836FF4 /* PlaylistEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B30232D3A798A00836FF4 /* PlaylistEntity+CoreDataClass.swift */; };
 		DD3B30282D3A798A00836FF4 /* PlaylistEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3B30242D3A798A00836FF4 /* PlaylistEntity+CoreDataProperties.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD0262662D48D99300EF31BF /* GridViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
+		DD0262672D48D99300EF31BF /* GridViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GridViewCell.xib; sourceTree = "<group>"; };
 		DD3B30212D3A71C800836FF4 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DD3B30232D3A798A00836FF4 /* PlaylistEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DD3B30242D3A798A00836FF4 /* PlaylistEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				DDF99E9A2D3FDB6D0077E5C3 /* CheckBox.swift */,
 				DDCD3FA52D43B4260003A73A /* PlaylistGridViewCell.swift */,
 				DDCD3FA62D43B4260003A73A /* PlaylistGridViewCell.xib */,
+				DD0262662D48D99300EF31BF /* GridViewCell.swift */,
+				DD0262672D48D99300EF31BF /* GridViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 			files = (
 				DDA9032B2D2BED2C00BE8DC7 /* LibraryViewCell.xib in Resources */,
 				DDDD5B562D0956950060FC61 /* Assets.xcassets in Resources */,
+				DD0262692D48D99300EF31BF /* GridViewCell.xib in Resources */,
 				DDF99E982D3FD9300077E5C3 /* AddPlaylistViewController.xib in Resources */,
 				DDBE5EAB2D39508C0077E031 /* PopupViewController.xib in Resources */,
 				DDCD3FA72D43B4260003A73A /* PlaylistGridViewCell.xib in Resources */,
@@ -328,6 +335,7 @@
 				DD3B302A2D3A798A00836FF4 /* Song+CoreDataProperties.swift in Sources */,
 				DD47CE192D2855930033D531 /* NetworkManager.swift in Sources */,
 				DD47CE1B2D2857690033D531 /* AlbumService.swift in Sources */,
+				DD0262682D48D99300EF31BF /* GridViewCell.swift in Sources */,
 				DDDD5B4F2D0956930060FC61 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

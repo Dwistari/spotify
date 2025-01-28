@@ -7,21 +7,20 @@
 
 import UIKit
 
-class PlaylistGridViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class PlaylistGridViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var items: [String] = []
+    var items: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "GridItemCell")
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,7 +32,6 @@ class PlaylistGridViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         return items.count
     }
     
-    // UICollectionViewDelegateFlowLayout
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
          let itemsPerRow: CGFloat = 3
          let padding: CGFloat = 10

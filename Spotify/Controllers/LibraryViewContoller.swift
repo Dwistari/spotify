@@ -10,14 +10,19 @@ import CoreData
 
 class LibraryViewContoller: UIViewController {
     
-    
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var btnGrid: UIButton!
+    @IBOutlet weak var tableViewContainer: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    var playlist: [PlaylistEntity]?
+    @IBOutlet weak var collectionViewContainer: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    let cellReuseIdentifier = "cell"
+    var playlist: [PlaylistEntity]?
+    var isGridView: Bool = false
+    
+    let listCellIdentifier = "listCell"
+    let gridCellIdentifier = "gridCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +31,16 @@ class LibraryViewContoller: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
+     
         let nib = UINib(nibName: "LibraryViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: cellReuseIdentifier)
+        self.tableView.register(nib, forCellReuseIdentifier: listCellIdentifier)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "GridViewCell", bundle: nil), forCellWithReuseIdentifier: gridCellIdentifier)
+
+        let layout = UICollectionViewFlowLayout()
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
         loadPlaylist()
     }
     
@@ -51,6 +64,18 @@ class LibraryViewContoller: UIViewController {
         self.present(createVc, animated: true, completion: nil)
     }
     
+    
+    @IBAction func changeLayout(_ sender: Any) {
+        isGridView.toggle()
+        if isGridView {
+            self.collectionViewContainer.isHidden = false
+            btnGrid.setImage(UIImage(systemName: "rectangle.grid.2x2"), for: .normal)
+        } else {
+            self.collectionViewContainer.isHidden = true
+            btnGrid.setImage(UIImage(systemName: "list.dash"), for: .normal)
+        }
+    }
+    
     private func showPlaylist(handler: @escaping (_ people: [PlaylistEntity]?) -> Void) {
         let persistent = CoreDataManager.shared
         do {
@@ -64,14 +89,14 @@ class LibraryViewContoller: UIViewController {
     
     private func deletePlaylist(playlistID: NSManagedObjectID) {
         let context = CoreDataManager.shared.context
-           do {
-               let playlist = try context.existingObject(with: playlistID)
-               context.delete(playlist)
-               CoreDataManager.shared.saveContext()
-               print("Playlist deleted successfully.")
-           } catch {
-               print("Failed to delete playlist: \(error.localizedDescription)")
-           }
+        do {
+            let playlist = try context.existingObject(with: playlistID)
+            context.delete(playlist)
+            CoreDataManager.shared.saveContext()
+            print("Playlist deleted successfully.")
+        } catch {
+            print("Failed to delete playlist: \(error.localizedDescription)")
+        }
         
         self.tableView.reloadData()
     }
@@ -89,10 +114,10 @@ extension LibraryViewContoller: UITableViewDelegate, UITableViewDataSource, UIGe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LibraryViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentifier, for: indexPath) as! LibraryViewCell
         cell.lblName.text =  self.playlist?[indexPath.row].name
         if let song = self.playlist?[indexPath.row].songs {
-            var songsArray = Array(song)
+            let songsArray = Array(song)
             cell.trackSong.text =  "\(songsArray.count) songs"
         }
         return cell
@@ -114,5 +139,23 @@ extension LibraryViewContoller: UITableViewDelegate, UITableViewDataSource, UIGe
                 print("Failed to find the playlist at the specified index")
             }
         }
+    }
+}
+
+extension LibraryViewContoller: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return playlist?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gridCellIdentifier, for: indexPath) as! GridViewCell
+        cell.titleLbl.text = playlist?[indexPath.row].name
+        return cell
+    }
+        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width  = (view.frame.width-20)/3
+        return CGSize(width: width, height: width)
     }
 }

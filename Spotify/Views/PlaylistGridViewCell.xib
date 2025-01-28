@@ -56,8 +56,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="tv.music.note.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eKc-2e-VIA">
-                        <rect key="frame" x="31" y="25" width="250" height="248.33333333333334"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tv.music.note.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eKc-2e-VIA">
+                        <rect key="frame" x="31.666666666666657" y="1" width="249.99999999999997" height="248.33333333333331"/>
                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="250" id="QgL-oZ-pMZ"/>
@@ -68,10 +68,10 @@
                 <constraints>
                     <constraint firstItem="tDX-bb-Jah" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="V5F-AH-gbq"/>
                     <constraint firstItem="tDX-bb-Jah" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VPA-my-Ln6"/>
+                    <constraint firstItem="eKc-2e-VIA" firstAttribute="centerX" secondItem="tDX-bb-Jah" secondAttribute="centerX" id="gfE-Zm-bXG"/>
                     <constraint firstItem="jVb-mD-PCQ" firstAttribute="top" secondItem="eKc-2e-VIA" secondAttribute="bottom" id="nUb-wU-WFo"/>
                     <constraint firstAttribute="bottom" secondItem="tDX-bb-Jah" secondAttribute="bottom" id="ttx-sc-e7i"/>
                     <constraint firstAttribute="trailing" secondItem="tDX-bb-Jah" secondAttribute="trailing" id="wv5-ms-xGx"/>
-                    <constraint firstItem="jVb-mD-PCQ" firstAttribute="top" secondItem="eKc-2e-VIA" secondAttribute="bottom" id="ykZ-nE-go2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
