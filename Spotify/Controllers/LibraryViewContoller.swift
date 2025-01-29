@@ -31,16 +31,24 @@ class LibraryViewContoller: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
-     
+        
         let nib = UINib(nibName: "LibraryViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: listCellIdentifier)
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "GridViewCell", bundle: nil), forCellWithReuseIdentifier: gridCellIdentifier)
-
+        
+        
+        let numberOfCellsPerRow: CGFloat = 2
         let layout = UICollectionViewFlowLayout()
-        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        
+        let totalSpacing = layout.minimumInteritemSpacing * (numberOfCellsPerRow - 1)
+        let totalCellWidth = collectionView.frame.width - totalSpacing
+        let cellWidth = totalCellWidth / numberOfCellsPerRow
+        
+        layout.itemSize = CGSize(width: cellWidth, height: 250)
+        collectionView.collectionViewLayout = layout
         loadPlaylist()
     }
     
@@ -69,10 +77,10 @@ class LibraryViewContoller: UIViewController {
         isGridView.toggle()
         if isGridView {
             self.collectionViewContainer.isHidden = false
-            btnGrid.setImage(UIImage(systemName: "rectangle.grid.2x2"), for: .normal)
+            btnGrid.setImage(UIImage(systemName: "list.dash"), for: .normal)
         } else {
             self.collectionViewContainer.isHidden = true
-            btnGrid.setImage(UIImage(systemName: "list.dash"), for: .normal)
+            btnGrid.setImage(UIImage(systemName: "rectangle.grid.2x2"), for: .normal)
         }
     }
     
@@ -153,9 +161,10 @@ extension LibraryViewContoller: UICollectionViewDelegate, UICollectionViewDataSo
         cell.titleLbl.text = playlist?[indexPath.row].name
         return cell
     }
-        
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width  = (view.frame.width-20)/3
-        return CGSize(width: width, height: width)
-    }
+          let width = collectionView.frame.width / 2 - 10 // Half of the collection view width minus padding
+          let height: CGFloat = 250
+          return CGSize(width: width, height: height)
+      }
 }
